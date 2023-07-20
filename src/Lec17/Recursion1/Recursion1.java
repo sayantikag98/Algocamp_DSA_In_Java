@@ -1,4 +1,4 @@
-package Lec17.RecursionBasics;
+package Lec17.Recursion1;
 
 public class Recursion1 {
     public static void main(String[] args) {
