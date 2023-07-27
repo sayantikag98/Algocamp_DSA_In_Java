@@ -9,10 +9,10 @@ public class Recursion1 {
 //        printDecreasingIncreasing(5);
     }
 
-    private static int factorial(int num){
+    public static int factorial(int num){
         //recurrence relation => f(n) = n * f(n-1)
         //base case
-        if(num == 0 || num == 1) return num;
+        if(num == 0 || num == 1) return 1;
         //assumption & self work
         return num * factorial(num-1);
     }
