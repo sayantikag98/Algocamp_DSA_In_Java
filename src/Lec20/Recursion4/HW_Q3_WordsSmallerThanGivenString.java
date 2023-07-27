@@ -4,20 +4,26 @@ import java.util.ArrayList;
 
 public class HW_Q3_WordsSmallerThanGivenString {
     public static void main(String[] args) {
-        ArrayList<String> arr = new ArrayList<>();
-        printAllRearrangement("dcf", 0, arr , "");
-        System.out.println(arr);
+        printAllLargerRearrangement("dcf", 0, "");
     }
 
-    private static void printAllRearrangement(String str, int idx, ArrayList<String> arr, String ans){
-        //Here idx == str.length() check is not required because whenever this happens ans.length() will
-        //always become equal to str.length()
+    private static void printAllLargerRearrangement(String str, int idx, String ans){
         if(ans.length() == str.length()){
-            arr.add(ans);
+            if(isFirstStringLarger(ans, str)){
+                System.out.println(ans);
+            }
             return;
         }
         for(int k = 0; k<=ans.length(); k++){
-            printAllRearrangement(str, idx+1, arr, ans.substring(0, k) + str.charAt(idx) + ans.substring(k));
+            printAllLargerRearrangement(str, idx+1, ans.substring(0, k) + str.charAt(idx) + ans.substring(k));
         }
+    }
+
+    private static boolean isFirstStringLarger(String str1, String str2){
+        for(int i = 0; i<str1.length(); i++){
+            if(str1.charAt(i)>str2.charAt(i)) return true;
+            if(str1.charAt(i)<str2.charAt(i)) return false;
+        }
+        return false;
     }
 }
