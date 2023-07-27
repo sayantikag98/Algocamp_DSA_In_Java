@@ -9,7 +9,7 @@ public class Leetcode119PascalTriangleII {
     }
 
     private static List<Integer> getRow(int rowIndex) {
-        List<Integer> l = new ArrayList<Integer>();
+        List<Integer> l = new ArrayList<>();
         pascalRow(rowIndex, 0, 1L, l);
         return l;
     }
