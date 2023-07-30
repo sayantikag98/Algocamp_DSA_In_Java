@@ -1,7 +1,5 @@
 package Lec20.Recursion4;
 
-import java.util.ArrayList;
-
 public class HW_Q3_WordsSmallerThanGivenString {
     public static void main(String[] args) {
         printAllLargerRearrangement("dcf", 0, "");
