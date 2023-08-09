@@ -1,4 +1,4 @@
-package Lec2;
+package Lec2.DataTypes;
 
 public class Lecture {
     static int sP;

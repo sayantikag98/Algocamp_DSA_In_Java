@@ -1,4 +1,4 @@
-package Lec5;
+package Lec5.Loops;
 
 public class LSumOfNaturalNo {
     public static void main(String[] args) {

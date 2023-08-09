@@ -1,4 +1,4 @@
-package Lec5;
+package Lec5.Loops;
 import java.util.Scanner;
 
 public class HWQ1SumOfOddDigitsAndEvenDigits {

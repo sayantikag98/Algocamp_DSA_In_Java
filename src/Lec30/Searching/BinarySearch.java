@@ -1,4 +1,4 @@
-package Lec25.Searching;
+package Lec30.Searching;
 
 public class BinarySearch {
     public static void main(String[] args) {

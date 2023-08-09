@@ -1,4 +1,4 @@
-package Lec6;
+package Lec6.TernaryOperatorAndTypeCasting;
 
 import java.util.Scanner;
 

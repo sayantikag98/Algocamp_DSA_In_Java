@@ -1,4 +1,4 @@
-package Lec3;
+package Lec3.UserInputAndOperators;
 
 import java.util.Scanner;
 

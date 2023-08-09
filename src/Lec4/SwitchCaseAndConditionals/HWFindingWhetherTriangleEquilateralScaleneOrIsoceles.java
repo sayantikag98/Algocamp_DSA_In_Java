@@ -1,4 +1,4 @@
-package Lec4;
+package Lec4.SwitchCaseAndConditionals;
 import java.util.Scanner;
 
 public class HWFindingWhetherTriangleEquilateralScaleneOrIsoceles {

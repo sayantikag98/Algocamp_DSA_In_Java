@@ -1,4 +1,4 @@
-package Lec5;
+package Lec5.Loops;
 
 public class LReverseANo {
     public static void main(String[] args) {
