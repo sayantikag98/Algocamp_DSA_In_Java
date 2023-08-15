@@ -30,7 +30,8 @@ public class NQueen {
         }
 
         //bounds check
-        if(i<0 || i==board.length || j<0 || j==board.length) return false;
+        //checking i is not required bcoz that will be taken care by the first base case
+        if(j==board.length) return false;
 
         // place a queen only if it's safe
         if(isSafe(board, i, j)){
@@ -52,52 +53,33 @@ public class NQueen {
     private static boolean isSafe(int[][] board, int i, int j){
 
         /*
-        check for 1 to be present in the entire row, entire column and both the diagonals
+        check for 1 to be present in the top-left diagonal, column and top-right diagonal in the rows above i
         if it is then it is not safe (returns false) otherwise safe (returns true)
+        Checking the current row and the rows below it is useless bcoz no queens would be present there
+        ALways check the rows above the current row
          */
 
-        //row && column
-        for(int k = 0; k<board.length; k++){
-            if(board[i][k] == 1 || board[k][j] == 1) return false;
+        //row always decreases
+        //top-left diagonal -> column decreases
+        //column -> column remains same
+        //top-right -> column increases
+
+        //column
+        for(int k = i-1; k>=0; k--){
+            if(board[k][j] == 1) return false;
         }
 
         //top-left diagonal
-        // row and column both decreases
-        int m = i, n = j;
+        int m = i-1, n = j-1;
         while(m>=0 && n>=0){
-            if(board[m][n] == 1) return false;
-            m--;
-            n--;
+            if(board[m--][n--] == 1) return false;
         }
 
         //top-right diagonal
-        // row decreases and column increases
-        m = i;
-        n = j;
+        m = i-1;
+        n = j+1;
         while(m>=0 && n<board.length){
-            if(board[m][n] == 1) return false;
-            m--;
-            n++;
-        }
-
-        //bottom-right diagonal
-        // row and column both increases
-        m = i;
-        n = j;
-        while(m<board.length && n<board.length){
-            if(board[m][n] == 1) return false;
-            m++;
-            n++;
-        }
-
-        //bottom-left diagonal
-        // row increases but column decreases
-        m = i;
-        n = j;
-        while(m<board.length && n>=0){
-            if(board[m][n] == 1) return false;
-            m++;
-            n--;
+            if(board[m--][n++] == 1) return false;
         }
 
         return true;

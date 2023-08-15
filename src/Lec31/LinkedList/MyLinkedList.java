@@ -1,41 +1,35 @@
-package Lec32.LinkedList;
+package Lec31.LinkedList;
 
-class Node{
-    int val;
-    Node next;
-
-    Node(int val){
-        this.val = val;
-        this.next = null;
-    }
-}
-
-class MyLinkedList{
+public class MyLinkedList{
 
     private Node head;
     private int size;
 
-    MyLinkedList(){
+    public MyLinkedList(){
         this.head = null;
         this.size = 0;
     }
 
-    boolean isEmpty(){
+    public Node getHead(){
+        return this.head;
+    }
+
+    public boolean isEmpty(){
         return this.size == 0;
     }
 
-    int size(){
+    public int size(){
         return this.size;
     }
 
-    void addFirst(int val){
+    public void addFirst(int val){
         Node newNode = new Node(val);
         newNode.next = this.head;
         this.head = newNode;
         this.size++;
     }
 
-    void addLast(int val){
+    public void addLast(int val){
         if(this.isEmpty()){
             this.addFirst(val);
             return;
@@ -50,7 +44,7 @@ class MyLinkedList{
         this.size++;
     }
 
-    void addAt(int val, int idx){
+    public void addAt(int val, int idx){
         //idx -> zero based indexing
         if(idx<0 || idx>this.size){
             System.out.println("Insertion not possible...please enter valid index");
@@ -72,7 +66,16 @@ class MyLinkedList{
         }
     }
 
-    int deleteFirst(){
+    public void addMany(int[] arr){
+        for(int i = arr.length-1; i>=0; i--){
+            Node newNode1 = new Node(arr[i]);
+            newNode1.next = this.head;
+            this.head = newNode1;
+            this.size++;
+        }
+    }
+
+    public int deleteFirst(){
         if(this.isEmpty()){
             System.out.println("Linked List is empty, so can't delete");
             return -1;
@@ -83,7 +86,7 @@ class MyLinkedList{
         return deletedVal;
     }
 
-    int deleteLast(){
+    public int deleteLast(){
         if(this.size<2){
             return this.deleteFirst();
         }
@@ -98,7 +101,7 @@ class MyLinkedList{
         return deletedVal;
     }
 
-    int deleteAt(int idx){
+    public int deleteAt(int idx){
         if(idx<0 || idx>=this.size){
             System.out.println("Deletion not possible, please enter valid index");
             return -1;
@@ -123,7 +126,7 @@ class MyLinkedList{
         }
     }
 
-    void print(){
+    public void print(){
         if(this.isEmpty()){
             System.out.println("Linked List is empty");
             return;
@@ -134,5 +137,28 @@ class MyLinkedList{
             temp = temp.next;
         }
         System.out.println("null");
+    }
+
+    public void print(Node head){
+        if(head == null){
+            System.out.println("Linked List is empty");
+            return;
+        }
+        Node temp = head;
+        while(temp!=null){
+            System.out.print(temp.val+" -> ");
+            temp = temp.next;
+        }
+        System.out.println("null");
+    }
+
+    public void printLinkedList(Node head){
+        if(head == null){
+            System.out.println("null");
+            return;
+        }
+        System.out.print(head.val+" -> ");
+        printLinkedList(head.next);
+
     }
 }

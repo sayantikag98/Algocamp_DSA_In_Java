@@ -27,7 +27,7 @@ public class NQueenILeetcode {
             ansList.add(soln);
             return false;
         }
-        if(i<0 || i == board.length || j<0 || j == board.length) return false;
+        if(j == board.length) return false;
 
         if(isSafe(board, i, j)){
             board[i][j] = 'Q';
@@ -39,36 +39,22 @@ public class NQueenILeetcode {
     }
 
     private static boolean isSafe(char[][] board, int i, int j){
-        //row and column
-        for(int k = 0; k<board.length; k++){
-            if(board[i][k] == 'Q' || board[k][j] == 'Q') return false;
+        //column
+        for(int k = i-1; k>=0; k--){
+            if(board[k][j] == 'Q') return false;
         }
 
         //top-left diagonal
-        int m = i, n = j;
+        int m = i-1, n = j-1;
         while(m>=0 && n>=0){
             if(board[m--][n--] == 'Q') return false;
         }
 
         //top-right diagonal
-        m = i;
-        n = j;
+        m = i-1;
+        n = j+1;
         while(m>=0 && n<board.length){
             if(board[m--][n++] == 'Q') return false;
-        }
-
-        //bottom-right diagonal
-        m = i;
-        n = j;
-        while(m<board.length && n<board.length){
-            if(board[m++][n++] == 'Q') return false;
-        }
-
-        //bottom-left diagonal
-        m = i;
-        n = j;
-        while(m<board.length && n>=0){
-            if(board[m++][n--] == 'Q') return false;
         }
 
         return true;

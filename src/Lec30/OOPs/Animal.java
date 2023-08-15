@@ -1,4 +1,4 @@
-package Lec31.OOPs;
+package Lec30.OOPs;
 
 public class Animal {
     boolean canSpeak = true;

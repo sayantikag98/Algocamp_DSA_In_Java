@@ -1,4 +1,4 @@
-package Lec32.LinkedList;
+package Lec31.LinkedList;
 
 public class LinkedListImplementationDemo {
     public static void main(String[] args) {
